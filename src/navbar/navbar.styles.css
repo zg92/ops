@@ -1,0 +1,29 @@
+.navbar-container {
+    background: white;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+   
+}
+
+.logo-container {
+
+}
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-right: 10px;
+}
+
+.navbar-link {
+    padding-right: 15px;
+}
+
+.sign-in {
+
+}
