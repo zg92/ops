@@ -1,0 +1,28 @@
+.button-container {
+    width: 150px;
+    height: 40px;
+    font-size: 1em;
+    border-radius: 5%;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.login-banner-button {
+    width: 250px;
+    height: 50px;
+    font-size: 1.5em;
+}
+
+.login-button,
+.login-banner-button {
+    background:  rgb(0, 0, 0);
+    color: white;
+    border-radius: .75em;
+}
+
+.login-button:hover,
+.login-banner-button:hover {
+    background: rgb(255, 255, 255);
+    color: black;
+    
+}

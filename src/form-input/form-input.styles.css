@@ -1,0 +1,14 @@
+.form-container {
+margin-bottom: 1em;
+}
+
+.form-input {
+    width: 350px;
+    margin: 5px 0 5px;
+    height: 2em;
+    border-radius: .5em;
+}
+
+.text-wrapper {
+    font-weight: bold;
+}

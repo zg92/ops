@@ -1,0 +1,30 @@
+.home-link-image-container {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    cursor: pointer;
+    box-shadow: rgb(0, 0, 0) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 1s;
+}
+
+.home-link-image-container:hover {
+    width: 102%;
+    height: 410px;
+    transition: 1s;
+}
+
+.home-link-icon {
+    width: 200px;
+    height: 200px;
+}
+
+.home-link-icon-text {
+    font-weight: bolder;
+    margin-top: 1em;
+    font-size: 1.5em;
+}

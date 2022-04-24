@@ -1,29 +1,44 @@
 .navbar-container {
     background: white;
-    height: 25px;
+    height: 70px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
-   
+    font-weight: bolder;
+    margin-bottom: 4px;
 }
 
 .logo-container {
+    padding: 0px 25px;
+    cursor: pointer;
+}
 
+.logo {
+    text-decoration: none;
+    color: black;
+    font-size: 1.75em;
 }
 
 .links-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-right: 10px;
+    padding: 0px 25px;
+    align-items: center;
+    width: 550px;
 }
 
 .navbar-link {
-    padding-right: 15px;
+    padding: 25px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: black;
 }
 
-.sign-in {
-
+.navbar-link:hover {
+    background: rgb(0, 0, 0);
+    color: white;
 }

@@ -1,0 +1,11 @@
+.home-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-image {
+    height: 800px;
+    width: 100%;
+    object-fit: fill;
+}

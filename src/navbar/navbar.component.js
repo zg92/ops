@@ -1,28 +1,33 @@
 import './navbar.styles.css'
+import Button from '../button/button.component'
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Fragment } from 'react';
 
 const Navbar = () => {
-    return (
-        <div className='navbar-container'>
-            <div className='logo-container'>
-                <a>[ Opserver ]</a>
-            </div>
-            <div className='links-container'>
-                <a className='navbar-link'>
-                    How To
-                </a>
-                <a className='navbar-link'>
-                    Tech Skills
-                </a>
-                <a className='navbar-link'>
-                    Reads
-                </a>
-            
-            <div className='sign-in'>
-                Sign In
-            </div>
-            </div>
 
-        </div>
+    return (
+        <Fragment>
+            <div className='navbar-container'>
+                <div className='logo-container'>
+                    <Link to='/' className='logo'>[ Opserver ]</Link>
+                </div>
+                <div className='links-container'>
+                    <Link className='navbar-link' to='/article'>
+                        How To
+                    </Link>
+                    <Link className='navbar-link' to='/article'>
+                        Tech Skills
+                    </Link>
+                    <Link className='navbar-link' to='/article'>
+                        Reads
+                    </Link>
+                    <Link to='/signin' className='navbar-link'>
+                        Sign In
+                    </Link>
+                </div>
+            </div>
+            <Outlet />
+        </Fragment >
     )
 }
 
