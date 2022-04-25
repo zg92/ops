@@ -1,6 +1,6 @@
 .sign-up-form {
     background: white;
-    height: 500px;
+    height: 600px;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -14,11 +14,9 @@
 .sign-title {
     font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 50px;
 }
 
 .sign-up-switch {
-    margin-top: 35px;
     cursor: pointer;
 }
 
@@ -27,5 +25,5 @@
     flex-direction: row;
     justify-content: space-evenly;
     width: 350px;
-    margin-top: 2.5%;
+    margin-top: 2%;
 }

@@ -5,6 +5,8 @@
     border-radius: 5%;
     font-weight: bolder;
     cursor: pointer;
+    border-radius: .75em;
+    text-decoration: none;
 }
 
 .login-banner-button {
@@ -17,12 +19,16 @@
 .login-banner-button {
     background:  rgb(0, 0, 0);
     color: white;
-    border-radius: .75em;
 }
 
 .login-button:hover,
-.login-banner-button:hover {
+.login-banner-button:hover,
+.google-signin-button:hover {
     background: rgb(255, 255, 255);
     color: black;
-    
+}
+
+.google-signin-button {
+    background: rgba(0, 0, 255, 0.788);
+    color: white;
 }

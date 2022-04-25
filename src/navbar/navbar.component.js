@@ -1,9 +1,12 @@
 import './navbar.styles.css'
-import Button from '../button/button.component'
-import { Outlet, Link, useNavigate } from 'react-router-dom';
-import { Fragment } from 'react';
+import { Outlet, Link } from 'react-router-dom';
+import { Fragment, useContext } from 'react';
+import { UserContext } from '../context/user.context';
+import { signOutUser } from '../utils/firebase';
 
 const Navbar = () => {
+
+    const {currentUser} = useContext(UserContext)
 
     return (
         <Fragment>
@@ -21,9 +24,13 @@ const Navbar = () => {
                     <Link className='navbar-link' to='/article'>
                         Reads
                     </Link>
+
+                    {currentUser ?
+                    (<span className='navbar-link' onClick={signOutUser}>Sign Out</span>) : (
                     <Link to='/signin' className='navbar-link'>
                         Sign In
-                    </Link>
+                    </Link>)
+                    }
                 </div>
             </div>
             <Outlet />

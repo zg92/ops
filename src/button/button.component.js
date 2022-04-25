@@ -1,17 +1,15 @@
 import './button.styles.css'
-import { useNavigate } from 'react-router-dom'
 
 const BUTTON_TYPES_CLASSES = {
   login: 'login-button',
-  loginBanner: 'login-banner-button'
+  loginBanner: 'login-banner-button',
+  googleSignin: 'google-signin-button'
 }
 
-const Button = ({ buttonType, to, children }) => {
-
-  const navigate = useNavigate()
+const Button = ({ buttonType, children, ...otherProps }) => {
 
   return (
-    <button className={`button-container ${BUTTON_TYPES_CLASSES[buttonType]}`} onClick={() => { navigate(`${to}`) }}>{children}</button>
+    <button className={`button-container ${BUTTON_TYPES_CLASSES[buttonType]}`} {...otherProps}>{children}</button>
   )
 }
 

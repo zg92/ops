@@ -9,13 +9,13 @@
     margin: 40px;
     cursor: pointer;
     box-shadow: rgb(0, 0, 0) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    transition: 1s;
+    transition: .5s ease-in-out;
 }
 
 .home-link-image-container:hover {
     width: 102%;
     height: 410px;
-    transition: 1s;
+    transition: 1s ease-in-out;
 }
 
 .home-link-icon {
