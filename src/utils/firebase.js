@@ -1,7 +1,8 @@
 
 import { initializeApp} from "firebase/app";
-import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut} from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc} from 'firebase/firestore'
+import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, updatePassword, signOut} from 'firebase/auth';
+import { getFirestore, doc, getDoc, setDoc, collection, getDocs, query, where, updateDoc} from 'firebase/firestore'
+
 
 
 const firebaseConfig = {
@@ -58,3 +59,29 @@ export const onAuthStateChangedListener = (callback) =>
 }
 
 export const signOutUser = async () => await signOut(auth)
+
+export const getUserData = async (currentUser) => {
+    if (currentUser) {
+    const userDoc = query(collection(db, 'users'), where('displayName', '==', currentUser.displayName))
+    const querySnapshop = await getDocs(userDoc) 
+    let userData = null 
+    querySnapshop.forEach((doc) => {
+        userData = doc.data()
+    })
+    return userData
+    }
+}
+
+export const updateUserData = async (currentUser, valueField, newValue) => {
+    if (currentUser) {
+        const userRef = doc(db, 'users', currentUser.uid)
+        const updateObj = {}
+        updateObj[valueField] = newValue
+        await updateDoc(userRef, updateObj)
+    }
+}
+
+export const updateUserPassword = async (newPassword) => {
+    console.log(auth.currentUser, newPassword)
+    await updatePassword(auth.currentUser, newPassword)
+}

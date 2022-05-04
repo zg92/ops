@@ -1,5 +1,5 @@
 import './home-link-item.styles.css'
-import { FcManager, FcAcceptDatabase, FcPanorama } from 'react-icons/fc'
+
 
 
 const HomeLinkItem = ({category}) => {

@@ -45,3 +45,9 @@
 Link {
     text-decoration: none;
 }
+
+@media only screen and (max-width: 815px) {
+    .banner-text-title-subtext {
+        display: none;
+    }
+}

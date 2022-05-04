@@ -1,5 +1,4 @@
 .article-wrapper {
-    width: 80%;
-    box-shadow: rgb(0, 0, 0) 0px 0px 5px 0px;
     padding: 3em;
+    margin-top: 40px;
 }

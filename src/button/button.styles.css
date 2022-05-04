@@ -15,6 +15,13 @@
     font-size: 1.5em;
 }
 
+.settings-update-button {
+    background: black;
+    color: white;
+    width: 180px;
+    margin-top: 20px;
+}
+
 .login-button,
 .login-banner-button {
     background:  rgb(0, 0, 0);
@@ -23,7 +30,8 @@
 
 .login-button:hover,
 .login-banner-button:hover,
-.google-signin-button:hover {
+.google-signin-button:hover,
+.settings-update-button:hover {
     background: rgb(255, 255, 255);
     color: black;
 }
@@ -32,3 +40,5 @@
     background: rgba(0, 0, 255, 0.788);
     color: white;
 }
+
+

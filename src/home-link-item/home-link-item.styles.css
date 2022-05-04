@@ -28,3 +28,14 @@
     margin-top: 1em;
     font-size: 1.5em;
 }
+
+
+@media only screen and (max-width: 1200px) {
+    .home-link-image-container {
+        width: 60%;
+    }
+    .home-link-image-container:hover {
+        width: 60%;
+        height: 400px
+    }
+}

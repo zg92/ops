@@ -1,0 +1,25 @@
+.recommendation-author-container {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+width: 100%;
+}
+
+.recommendation-author-icon {
+    width: 25%;
+    cursor: pointer;
+}
+
+.recommendation-author-info-container {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.recommendation-author-name {
+    font-size: 1.25em;
+    font-weight: bolder;
+    cursor: pointer;
+}

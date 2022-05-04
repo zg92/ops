@@ -5,6 +5,7 @@ import Home from './routes/home/home.component';
 import SignIn from './routes/signin/signin.component';
 import SignUp from './routes/signup/signup.component';
 import ArticlePage from './routes/article/article-page.component';
+import Settings from './routes/settings/settings.component';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='signin' element={<SignIn />} />
             <Route path='signup' element={<SignUp />} />
             <Route path='article' element={<ArticlePage />} />
+            <Route path='settings' element={<Settings />} />
           </Route>
         </Routes>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Button from '../../button/button.component'
 import FormInput from '../../form-input/form-input.component'
 import { createUserDocumentFromAuth, createAuthUserWithEmailAndPassword } from '../../utils/firebase'
@@ -14,6 +14,8 @@ const defaultFormFields = {
 
 
 const SignUp = () => {
+
+    const navigate = useNavigate()
 
     const [formFields, setFormFields] = useState(defaultFormFields)
     
@@ -40,6 +42,7 @@ const SignUp = () => {
 
             await createUserDocumentFromAuth(user, { displayName })
             resetFormFields()
+            navigate('/')
 
         }
         catch (error) {
@@ -64,7 +67,7 @@ const SignUp = () => {
                 <Button buttonType='login'>Sign Up</Button>
             </div>
             </form>
-            <div className='sign-in-switch'>Already Have An Account?<Link to='/signin'>Sign In.</Link></div>
+            <div className='sign-in-switch'>Already Have An Account? <Link to='/signin'>Sign In.</Link></div>
         </div>
     )
 }

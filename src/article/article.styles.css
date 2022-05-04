@@ -1,0 +1,40 @@
+.article-container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.article-content {
+    margin-right: 30px;
+    width: 100%;
+}
+
+.recommendations-container {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    align-items: center;
+    height: max-content;
+    position: fixed;
+    right: 0;
+    width: 25%;
+}
+
+.recommendations-text {
+    height: 2em;
+    margin-top: 1em;
+    font-weight: bold;
+    align-items: left;
+}
+
+@media only screen and (max-width: 1000px) {
+    .article-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .recommendations-container {
+        position: relative;
+        width: 100%;
+    }
+}
+

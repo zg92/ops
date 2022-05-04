@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../button/button.component'
 import FormInput from '../../form-input/form-input.component'
 import { createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase'
@@ -10,7 +10,11 @@ const defaultFormFields = {
     password: ''
 }
 
+
+
 const SignIn = () => {
+
+    const navigate = useNavigate()
 
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { email, password } = formFields
@@ -26,11 +30,9 @@ const SignIn = () => {
     }
 
     const googleSignIn = async () => {
-        console.log('hello')
         await signInWithGooglePopup();
-        
-        
-        
+        navigate('/')
+
     }
 
     const handleSubmit = async (event) => {
@@ -38,6 +40,7 @@ const SignIn = () => {
         try {
             await signInAuthUserWithEmailAndPassword(email, password)
             resetFormFields()
+            navigate('/')
 
         }
         catch (error) {

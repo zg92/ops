@@ -1,10 +1,28 @@
 .article-item-wrapper {
-    margin-left: 2em;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+.author-icon {
+    margin-top: 5px;
+    width: 125px;
+    height: 125px;
+    margin-right: 25px;
+    display: flex;
+    cursor: pointer;
+}
+
+.author-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .author-name {
     font-size: 1.5em;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .date {
