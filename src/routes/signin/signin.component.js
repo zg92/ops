@@ -10,8 +10,6 @@ const defaultFormFields = {
     password: ''
 }
 
-
-
 const SignIn = () => {
 
     const navigate = useNavigate()
@@ -25,7 +23,6 @@ const SignIn = () => {
 
     const handleChanges = (event) => {
         const { name, value } = event.target;
-        console.log(name, value)
         setFormFields({ ...formFields, [name]: value })
     }
 

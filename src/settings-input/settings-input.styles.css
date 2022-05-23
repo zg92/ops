@@ -1,0 +1,53 @@
+.input-wrapper {
+    height: 200px;
+    box-shadow: rgb(0, 0, 0) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+
+.settings-type-text {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 25px;
+    justify-content: center;
+    display: flex;
+    
+}
+
+.change-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.change-items {
+    width: 250px;
+}
+
+.current-status {
+    font-size: 1em;
+}
+
+.input-settings-form {
+    width: 250px;
+    height: 1.5em;
+}
+
+.text-status-display {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-status-display p {
+    margin-left: 5px;
+}
+
+.submit-change-input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}

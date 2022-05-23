@@ -62,7 +62,7 @@ export const signOutUser = async () => await signOut(auth)
 
 export const getUserData = async (currentUser) => {
     if (currentUser) {
-    const userDoc = query(collection(db, 'users'), where('displayName', '==', currentUser.displayName))
+    const userDoc = query(collection(db, 'users'), where('email', '==', currentUser.email))
     const querySnapshop = await getDocs(userDoc) 
     let userData = null 
     querySnapshop.forEach((doc) => {
@@ -82,6 +82,5 @@ export const updateUserData = async (currentUser, valueField, newValue) => {
 }
 
 export const updateUserPassword = async (newPassword) => {
-    console.log(auth.currentUser, newPassword)
     await updatePassword(auth.currentUser, newPassword)
 }

@@ -1,8 +1,10 @@
 import './settings.style.css'
-import Button from '../../button/button.component';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/user.context';
-import { updateUserData, updateUserPassword, signInAuthUserWithEmailAndPassword } from '../../utils/firebase';
+import { updateUserData, updateUserPassword, signInAuthUserWithEmailAndPassword, getUserData } from '../../utils/firebase';
+import SettingsInput from '../../settings-input/settings-input.component';
+import SettingsInputPassword from '../../settings-input-password/settings-input-password.component';
+import { useNavigate } from 'react-router-dom';
 
 
 const Settings = () => {
@@ -14,23 +16,35 @@ const Settings = () => {
         newPassword: ''
     }
 
-    const { currentUser, userInfo } = useContext(UserContext)
+    const { currentUser, userInfo, setUserInfo } = useContext(UserContext)
     const [field, setField] = useState(defaultFormField)
     const { tagline, displayName, oldPassword, newPassword } = field
+    const [currentUserInfo, setCurrentUserInfo] = useState(userInfo)
+    const { tagline: currentTagline, displayName: currentDisplayName } = currentUserInfo
+
+    const navigate = useNavigate()
+    
+    useEffect(
+        () => {
+            if (userInfo === undefined) {
+                navigate('/')
+            }
+            setCurrentUserInfo(userInfo)
+        }, [userInfo]
+    )
 
     const updateField = async (event) => {
         const { name } = event.target
         event.preventDefault()
-        console.log(name)
         if (name === 'password') {
-            console.log(oldPassword, newPassword)
             await signInAuthUserWithEmailAndPassword(currentUser.email, oldPassword)
-            updateUserPassword(newPassword)
-            
+            await updateUserPassword(newPassword)
+
         }
-        if (name === 'tagline' || name === 'displayName')
-            {updateUserData(currentUser, name, field[name])}
+        if (name === 'tagline' || name === 'displayName') {await updateUserData(currentUser, name, field[name]) };
         setField(defaultFormField)
+        const newUserInfo = await getUserData(currentUser)
+        setUserInfo(newUserInfo)   
     }
 
     const handleChange = (event) => {
@@ -41,43 +55,9 @@ const Settings = () => {
     return (
         <div className='settings-wrapper'>
             <div className='settings-item-container'>
-                <div className='update-user-photo'><div className='settings-type-text'>Update Photo</div></div>
-                <div className='update-tagline'>
-                    <div className='settings-type-text'>Update Tagline</div>
-                    <form className='change-form' onSubmit={(e) => updateField(e)} name='tagline'>
-                        <div className='change-items'>
-                            <div className='current-status'>{userInfo ? <div className='text-status-display'><h4>Current Tagline:</h4><p>{userInfo.tagline}</p></div> : 'Set Your Username Below'}</div>
-                            <input className='input-settings-form' type='text' name='tagline' onChange={handleChange} value={tagline} />
-                        </div>
-                        <div className='submit-change'>
-                            <Button buttonType='settingsUpdate' type='submit'>Update Tagline</Button>
-                        </div>
-                    </form>
-                </div>
-                <div className='update-username'>
-                    <div className='settings-type-text'>Update Username</div>
-                    <form className='change-form' onSubmit={(e) => updateField(e)} name='displayName'>
-                        <div className='change-items'>
-                            <div className='current-status'>{userInfo ? <div className='text-status-display'><h4>Current Username:</h4><p>{userInfo.displayName}</p></div> : 'Set Your Username Below'}</div>
-                            <input className='input-settings-form' type='text' name='displayName' onChange={handleChange} value={displayName} />
-                        </div>
-                        <div className='submit-change'>
-                            <Button buttonType='settingsUpdate'>Update Username</Button>
-                        </div>
-                    </form>
-                </div>
-                <div className='update-password'>
-                    <div className='settings-type-text'>Update Password</div>
-                    <form className='change-form' onSubmit={(e) => updateField(e)} name='password'>
-                        <div className='change-items'>
-                            <input className='input-settings-form' type='password' name='oldPassword' onChange={handleChange} value={oldPassword} />
-                            <input className='input-settings-form' type='password' name='newPassword' onChange={handleChange} value={newPassword} />
-                        </div>
-                        <div className='submit-change'>
-                            <Button buttonType='settingsUpdate'>Update Password</Button>
-                        </div>
-                    </form>
-                </div>
+                <SettingsInput title='Tagline' name='tagline' updateField={updateField} value={tagline} currentInfo={currentTagline} handleChange={handleChange} />
+                <SettingsInput title='Username' name='displayName' updateField={updateField} value={displayName} currentInfo={currentDisplayName} handleChange={handleChange} />
+                <SettingsInputPassword title='Password' name='password' updateField={updateField} userInfo={userInfo} newPassword={newPassword} oldPassword={oldPassword} handleChange={handleChange} />
             </div>
         </div>
 

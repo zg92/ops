@@ -18,7 +18,6 @@ const SignUp = () => {
     const navigate = useNavigate()
 
     const [formFields, setFormFields] = useState(defaultFormFields)
-    
     const { displayName, email, password, confirmPassword } = formFields
     
     const resetFormFields = () => {
